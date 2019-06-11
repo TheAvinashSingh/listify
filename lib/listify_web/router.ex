@@ -19,6 +19,8 @@ defmodule ListifyWeb.Router do
     get "/", PageController, :index
 
     resources "/playlists", PlaylistController
+
+    resources "/registrations", UserController, only: [:create, :new]
   end
 
   # Other scopes may use custom stacks.

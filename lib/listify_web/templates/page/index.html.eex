@@ -16,6 +16,9 @@
       <li>
         <a href="https://github.com/phoenixframework/phoenix/blob/v1.4/CHANGELOG.md">v1.4 Changelog</a>
       </li>
+      <li>
+        <li> <% link "Sign Up", to: Routes.user_path(@conn, :new) %></li>
+      </li>
     </ul>
   </article>
   <article class="column">
