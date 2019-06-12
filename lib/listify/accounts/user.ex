@@ -1,6 +1,8 @@
 defmodule Listify.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
+  alias Comeonin.Bcrypt
+  alias Comeonin.Argon2
 
   schema "users" do
     field :email, :string
@@ -15,5 +17,6 @@ defmodule Listify.Accounts.User do
     |> cast(attrs, [:email, :encrypted_password])
     |> validate_required([:email, :encrypted_password])
     |> unique_constraint(:email)
+    |> update_change(:encrypted_password, &Bcrypt.hash_pwd_salt/2)
   end
 end
