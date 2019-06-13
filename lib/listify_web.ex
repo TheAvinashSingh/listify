@@ -41,6 +41,7 @@ defmodule ListifyWeb do
 
       import ListifyWeb.ErrorHelpers
       import ListifyWeb.Gettext
+      import ListifyWeb.Helpers.Auth, only: [current_user: 1]
       alias ListifyWeb.Router.Helpers, as: Routes
     end
   end
