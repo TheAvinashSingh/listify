@@ -6,9 +6,7 @@ defmodule ListifyWeb.UserController do
 
   def new(conn, _params) do
     changeset = Accounts.change_user(%User{})
-    conn
-     |> delete_session(:current_user_id)
-     |> render("new.html", changeset: changeset) 
+    render(conn, "new.html", changeset: changeset)
   end
 
   def create(conn, %{"user" => user_params}) do
