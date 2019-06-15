@@ -9,6 +9,10 @@ defmodule ListifyWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  pipeline :browser_auth do
+    plug ListifyWeb.Plugs.Auth
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
@@ -24,6 +28,12 @@ defmodule ListifyWeb.Router do
     get "/sign-in", SessionController, :new
     post "/sign-in", SessionController, :create
     delete "/sign-out", SessionController, :delete
+  end
+
+  scope "/admin", ListifyWeb.Admin do
+    pipe_through [:browser, :browser_auth]
+
+    get "/", PageController, :index
 
   end
 
