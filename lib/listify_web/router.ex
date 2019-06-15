@@ -33,7 +33,7 @@ defmodule ListifyWeb.Router do
   scope "/admin", ListifyWeb.Admin do
     pipe_through [:browser, :browser_auth]
 
-    get "/", PageController, :index
+    get "/", AdminController, :index
 
   end
 
