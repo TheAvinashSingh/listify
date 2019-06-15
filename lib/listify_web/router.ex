@@ -30,7 +30,7 @@ defmodule ListifyWeb.Router do
     delete "/sign-out", SessionController, :delete
   end
 
-  scope "/admin", ListifyWeb.Admin do
+  scope "/admin", ListifyWeb.Admin, as: :admin do
     pipe_through [:browser, :browser_auth]
 
     get "/", AdminController, :index
